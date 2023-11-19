@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Nunito", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Nunito", sans-serif;
+}
+
+.specialBtn {
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 14px 55px rgba(96, 253, 227, 0.37);
+  transition-duration: 200ms;
+}
+
+.specialBtn:hover {
+  opacity: 0.8;
+}
