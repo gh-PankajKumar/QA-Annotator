@@ -28,4 +28,7 @@ urlpatterns = [
         QADataView.as_view({"post": "delete_qa_data"}),
         name="qa-data-delete",
     ),
+    path("api/qa_data/export_qa_data/",
+         QADataView.as_view({"get":"export_qa_data"}),
+        name="qa-export-data")
 ]

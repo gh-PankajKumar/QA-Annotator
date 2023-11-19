@@ -34,15 +34,20 @@ export default function QAPage({ file }) {
     }
   };
 
-  const exportQAData = async (context) => {
+  const exportQAData = async (contextList) => {
     try {
-      const response = await axios.get("/api/context_upload/", {
-        params: { context: context },
+      const response = await axios.get("api/qa_data/export_qa_data/", {
+        params: { context_list: contextList },
       });
     } catch (error) {
       console.error("Error exporting data", error);
     }
   };
+
+  const handleExportData = () => {
+   exportQAData(contextList)
+
+  }
 
   useEffect(() => {
     contextFromFile(file);
@@ -50,13 +55,18 @@ export default function QAPage({ file }) {
 
   return (
     <div className="flex flex-col justify-center items-center w-full min-h-screen">
+      <div>
+        <button className="w-36 btn btn-primary" onClick={handleExportData}> 
+          Test Export
+        </button>
+      </div>
       <div className="text-center">
         <ContextDisplay
           contextList={contextList}
           onCurrentContextChange={handleCurrentContextChange}
         />
       </div>
-      <div className="flex flex-col items-center py-8 mt-4 max-w-2xl">
+      <div className="flex flex-col items-center mt-4 max-w-2xl">
         <QAForm
           contextList={contextList}
           currentContext={currentContext}

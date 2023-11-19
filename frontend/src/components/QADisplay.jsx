@@ -23,8 +23,9 @@ export default function QADisplay({
 
   const handleDeleteData = async () => {
     // Build the request body with selected data
-
+    
     const selectedData = selectedRows.map((index) => qaData[index]);
+    console.log(selectedData)
     const selectedIds = selectedData.map((data) => data.id);
     try {
       const response = await axios.post("api/qa_data/qa_data_delete/", {
@@ -57,6 +58,7 @@ export default function QADisplay({
       getQAData(currentContext).then((response) => {
         setQAData(response.data.QAData);
       });
+      setShouldFetchData(false)
     }
   }, [currentContext, shouldFetchData]);
 

@@ -122,3 +122,24 @@ class QADataView(ModelViewSet):
                 {"message": f"Error Deleting {str(e)}"},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
+    @action(detail=False, methods=["get"])
+    def export_qa_data(self, request, *args, **kwargs):
+        context_list = request.query_params.get("context_list")
+        print(context_list)
+        #ids = context_list
+        try: 
+            qa_data = QAData.objects.filter(context__id__in=ids)
+            qa_data_serializer = QADataSerializer(qa_data, many=True)
+            return Response(
+                {
+                    "message": "QA Data export successful!",
+                    "QADataExport": qa_data_serializer.data,
+                },
+                status=status.HTTP_202_ACCEPTED,
+            )
+
+        except Exception as e:
+            return Response(
+                {"message": f"Error Export {str(e)}"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )

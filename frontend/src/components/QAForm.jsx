@@ -47,7 +47,7 @@ export default function QAForm({
       };
       const response = await axios.post("/api/qa_data/", data);
       console.log("Submit Data Success: ", response);
-      setShouldFetchData(true);
+      setShouldFetchData(true)
     } catch (error) {
       console.error("Submit Data Error: ", error);
     }
@@ -55,6 +55,7 @@ export default function QAForm({
 
   const handleSubmit = () => {
     submitData(currentContext);
+
   };
 
   return (
