@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -122,24 +123,27 @@ class QADataView(ModelViewSet):
                 {"message": f"Error Deleting {str(e)}"},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
-    @action(detail=False, methods=["get"])
+
+    @action(detail=False, methods=["post"])
     def export_qa_data(self, request, *args, **kwargs):
-        context_list = request.query_params.get("context_list")
-        print(context_list)
-        #ids = context_list
-        try: 
-            qa_data = QAData.objects.filter(context__id__in=ids)
-            qa_data_serializer = QADataSerializer(qa_data, many=True)
-            return Response(
-                {
-                    "message": "QA Data export successful!",
-                    "QADataExport": qa_data_serializer.data,
-                },
-                status=status.HTTP_202_ACCEPTED,
+        context_list = request.data.get("context_list")
+        ids = [_["id"] for _ in context_list if "id" in _]
+        try:
+            qa_data = QAData.objects.filter(context_id__in=ids)
+            qa_data_df = pd.DataFrame.from_records(
+                qa_data.values("context__context", "question", "answer", "answer_start")
             )
+            qa_data_df = qa_data_df.rename(columns={"context__context": "context"})
+            csv_data = qa_data_df.to_csv(index=False)
+
+            response = HttpResponse(csv_data, content_type="text/csv")
+            response[
+                "Content-Disposition"
+            ] = 'attachment; filename="exported_qa_data.csv"'
+            return response
 
         except Exception as e:
             return Response(
                 {"message": f"Error Export {str(e)}"},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )

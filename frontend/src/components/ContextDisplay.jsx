@@ -31,8 +31,15 @@ export default function ContextDisplay({
           >
             «
           </button>
+
           <button className="px-4 join-item btn-neutral no-animation btn-active">
-            Context: {contextIndex + 1}/{contextList.length}
+            {contextList.length === 0 ? (
+              <span className="loading loading-dots loading-xs"></span>
+            ) : (
+              <span>
+                {contextIndex + 1}/{contextList.length}
+              </span>
+            )}
           </button>
           <button
             className="join-item btn"
@@ -46,7 +53,11 @@ export default function ContextDisplay({
       <div className="flex overflow-auto px-4 pb-8 mx-auto w-10/12 h-96 shadow-xl card bg-base-100">
         <div className="items-center text-justify card-body">
           <h2 className="card-title">Context: </h2>
-          <p>{contextList[contextIndex]?.context}</p>
+          {contextList.length === 0 ? (
+            <span className="loading loading-spinner loading-md"></span>
+          ) : (
+            <p>{contextList[contextIndex]?.context}</p>
+          )}
         </div>
       </div>
     </main>

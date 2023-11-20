@@ -23,9 +23,9 @@ export default function QADisplay({
 
   const handleDeleteData = async () => {
     // Build the request body with selected data
-    
+
     const selectedData = selectedRows.map((index) => qaData[index]);
-    console.log(selectedData)
+    console.log(selectedData);
     const selectedIds = selectedData.map((data) => data.id);
     try {
       const response = await axios.post("api/qa_data/qa_data_delete/", {
@@ -58,7 +58,7 @@ export default function QADisplay({
       getQAData(currentContext).then((response) => {
         setQAData(response.data.QAData);
       });
-      setShouldFetchData(false)
+      setShouldFetchData(false);
     }
   }, [currentContext, shouldFetchData]);
 
@@ -66,7 +66,7 @@ export default function QADisplay({
     <>
       {qaData ? (
         <div className="overflow-x-auto">
-          <table className="table table-auto">
+          <table className="table overflow-scroll table-auto table-pin-rows">
             {/* head */}
             <thead>
               <tr>
@@ -79,13 +79,13 @@ export default function QADisplay({
                     <i className="text-error fa-solid fa-trash"></i>
                   </button>
                 </th>
-                <th className="px-16 w-full">
+                <th className="px-16">
                   <span className="font-bold"> Question </span>
                 </th>
-                <th className="px-16 w-full">
+                <th className="px-16">
                   <span className="font-bold">Answer </span>
                 </th>
-                <th className="px-16 w-full">
+                <th className="px-16">
                   <span className="font-bold">Answer Start</span>
                 </th>
                 <th></th>
@@ -95,7 +95,7 @@ export default function QADisplay({
               {/* row 1 */}
               {qaData.map((data, index) => (
                 <tr key={index}>
-                  <th className="px-16 w-full">
+                  <th className="px-16">
                     <label>
                       <input
                         type="checkbox"
@@ -105,9 +105,9 @@ export default function QADisplay({
                       />
                     </label>
                   </th>
-                  <td className="px-16 w-full">{data.question}</td>
-                  <td className="px-16 w-full">{data.answer}</td>
-                  <td className="px-16 w-full">{data.answer_start}</td>
+                  <td className="px-16">{data.question}</td>
+                  <td className="px-16">{data.answer}</td>
+                  <td className="px-16">{data.answer_start}</td>
                 </tr>
               ))}
             </tbody>
