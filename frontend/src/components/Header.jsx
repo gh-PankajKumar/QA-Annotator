@@ -8,7 +8,7 @@ export default function Header(props) {
       <div className="flex-1">
         <a className="text-xl btn btn-ghost" href="/">
           <span className="font-black text-primary">QA</span>{" "}
-          <span className="text-xs">Annotator</span>
+          <span className="text-xs text-base-content">Annotator</span>
         </a>
       </div>
       <div className="flex-none">
@@ -62,8 +62,8 @@ export default function Header(props) {
                 type="radio"
                 name="theme-dropdown"
                 className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
-                aria-label="Black"
-                value="black"
+                aria-label="Nord"
+                value="nord"
               />
             </li>
           </ul>
