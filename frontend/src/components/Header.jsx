@@ -12,60 +12,62 @@ export default function Header(props) {
         </a>
       </div>
       <div className="flex-none">
-        <ul className="px-1 menu menu-horizontal">
-          <li>
-            <details>
-              <summary>Themes (TODO!)</summary>
-              <ul className="p-2 bg-base-100">
-                <li>
-                  <input
-                    type="radio"
-                    name="theme-dropdown"
-                    className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
-                    aria-label="Default"
-                    value="default"
-                  />
-                </li>
-                <li>
-                  <input
-                    type="radio"
-                    name="theme-dropdown"
-                    className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
-                    aria-label="Retro"
-                    value="retro"
-                  />
-                </li>
-                <li>
-                  <input
-                    type="radio"
-                    name="theme-dropdown"
-                    className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
-                    aria-label="Cyberpunk"
-                    value="cyberpunk"
-                  />
-                </li>
-                <li>
-                  <input
-                    type="radio"
-                    name="theme-dropdown"
-                    className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
-                    aria-label="Valentine"
-                    value="valentine"
-                  />
-                </li>
-                <li>
-                  <input
-                    type="radio"
-                    name="theme-dropdown"
-                    className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
-                    aria-label="Aqua"
-                    value="aqua"
-                  />
-                </li>
-              </ul>
-            </details>
-          </li>
-        </ul>
+        <div className="dropdown">
+          <label tabIndex={0} className="m-1 btn">
+            Themes (TODO!) <i className="fa-solid fa-chevron-down"></i>
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            data-choose-theme
+          >
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
+                aria-label="Dracula"
+                value="dracula"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
+                aria-label="Pastel"
+                value="pastel"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
+                aria-label="Dim"
+                value="dim"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
+                aria-label="Cupcake"
+                value="cupcake"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
+                aria-label="Black"
+                value="black"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
