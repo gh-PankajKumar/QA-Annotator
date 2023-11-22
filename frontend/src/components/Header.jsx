@@ -14,7 +14,7 @@ export default function Header(props) {
       <div className="flex-none">
         <div className="dropdown">
           <label tabIndex={0} className="m-1 btn">
-            Themes (TODO!) <i className="fa-solid fa-chevron-down"></i>
+            Themes<i className="fa-solid fa-chevron-down"></i>
           </label>
           <ul
             tabIndex={0}
