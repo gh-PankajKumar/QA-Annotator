@@ -11,12 +11,12 @@ export default function ContextDisplay({
   }, [onCurrentContextChange, contextIndex]);
 
   const handlePrevButton = () => {
-    setContextIndex(contextIndex - 1);
+    setContextIndex((prevIndex) => prevIndex - 1);
     console.log("Prev button pressed");
   };
 
   const handleNextButton = () => {
-    setContextIndex(contextIndex + 1);
+    setContextIndex((prevIndex) => prevIndex + 1);
     console.log("Next button pressed");
   };
 
