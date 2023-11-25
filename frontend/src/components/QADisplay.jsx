@@ -57,8 +57,8 @@ export default function QADisplay({
       console.log("Fetching for:", currentContext);
       getQAData(currentContext).then((response) => {
         setQAData(response.data.QAData);
+        setShouldFetchData(false);
       });
-      setShouldFetchData(false);
     }
   }, [currentContext, shouldFetchData]);
 
