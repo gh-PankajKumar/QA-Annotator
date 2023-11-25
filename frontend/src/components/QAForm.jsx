@@ -47,7 +47,7 @@ export default function QAForm({
       };
       const response = await axios.post("/api/qa_data/", data);
       console.log("Submit Data Success: ", response);
-      setShouldFetchData(true)
+      setShouldFetchData(true);
     } catch (error) {
       console.error("Submit Data Error: ", error);
     }
@@ -55,7 +55,6 @@ export default function QAForm({
 
   const handleSubmit = () => {
     submitData(currentContext);
-
   };
 
   return (
@@ -79,7 +78,7 @@ export default function QAForm({
         )}
       </div>
       <div className="flex justify-center py-4 space-x-14 w-full">
-        <button className="w-36 btn" onClick={handleReset} disabled={!question}>
+        <button className="w-36 btn" onClick={handleReset}>
           Reset <i className="fa-solid fa-arrows-rotate"></i>
         </button>
 
@@ -96,7 +95,7 @@ export default function QAForm({
         <button
           className="w-36 btn btn-accent"
           onClick={handleSubmit}
-          disabled={!question}
+          disabled={!showAnswer}
         >
           Submit <i className="fa-solid fa-paper-plane"></i>
         </button>
