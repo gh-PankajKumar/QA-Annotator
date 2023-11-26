@@ -1,10 +1,10 @@
-# Note Dump & TODO:
+# QA Annotator Tool
 
-## Todo:
--  write box for displaying context
-- write question box
-- write answer button with functionality of selecting highlighted text
+This is a simple web app I made to help create SQuAD-like datasets and also learn react/django.
+## Installation
 
+WIP
 
-## links
-https://www.youtube.com/watch?v=ymGB1lqP1CM
+## Usage
+
+WIP
