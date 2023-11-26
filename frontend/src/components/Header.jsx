@@ -7,8 +7,18 @@ export default function Header(props) {
     <div className="navbar bg-base-100">
       <div className="flex-1">
         <a className="text-xl btn btn-ghost" href="/">
-          <span className="font-black text-primary">QA</span>{" "}
+          <span className="font-black text-primary">QA</span>
           <span className="text-xs text-base-content">Annotator</span>
+        </a>
+        <a
+          href="https://github.com/gh-PankajKumar/QA-Annotator"
+          target="_blank"
+          rel="noopener"
+          aria-label="Github"
+        >
+          <button className="btn btn-ghost">
+            <i className="fa-brands fa-github"></i>
+          </button>
         </a>
       </div>
       <div className="flex-none">
