@@ -45,8 +45,8 @@ export default function Header(props) {
                 type="radio"
                 name="theme-dropdown"
                 className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
-                aria-label="Pastel"
-                value="pastel"
+                aria-label="Rosepine"
+                value="rosepine"
               />
             </li>
             <li>
@@ -54,8 +54,8 @@ export default function Header(props) {
                 type="radio"
                 name="theme-dropdown"
                 className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
-                aria-label="Dim"
-                value="dim"
+                aria-label="Gruvbox Light"
+                value="gruvbox-light"
               />
             </li>
             <li>
@@ -63,8 +63,8 @@ export default function Header(props) {
                 type="radio"
                 name="theme-dropdown"
                 className="justify-start theme-controller btn btn-sm btn-block btn-ghost"
-                aria-label="Cupcake"
-                value="cupcake"
+                aria-label="Espresso"
+                value="espresso"
               />
             </li>
             <li>
