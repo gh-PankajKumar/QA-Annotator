@@ -2,13 +2,14 @@
 
 This is a simple web app I made to help create SQuAD-like datasets for my PhD work and also learn react/django.
 
-Of course, this app is not perfect and there will be areas of improvements. Feel to use and make additions to the app 
+Of course, this app is not perfect and there will be areas of improvements. I will not be updating this project anymore as it is served its purpose (a way to make a SQuAD-like evaluation dataset more easily).
 
 ![](/docs/HomePage.png)
 
 ## Installation
 
 **Clone the repository:**
+
     ```sh
     git clone https://github.com/gh-PankajKumar/QA-Annotator.git
     cd QA-Annotator
@@ -17,12 +18,14 @@ Of course, this app is not perfect and there will be areas of improvements. Feel
 ### Backend
 
 1. **Install the backend dependencies:**
+
     ```sh
     cd backend
     pip install -r requirements.txt
     ```
 
 2. **Apply migrations:**
+    
     ```sh
     python manage.py migrate
     ```
