@@ -7,12 +7,10 @@ Of course, this app is not perfect and there will be areas of improvements. I wi
 ![](/docs/HomePage.png)
 
 ## Installation
-
-**Clone the repository:**
-    ```sh
+```sh
     git clone https://github.com/gh-PankajKumar/QA-Annotator.git
     cd QA-Annotator
-    ```
+```
 ### Backend
 
 1. **Install the backend dependencies:**
